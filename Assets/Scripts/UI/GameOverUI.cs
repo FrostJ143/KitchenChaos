@@ -1,11 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using UnityEngine.UI;
 using UnityEngine;
 
 public class GameOverUI : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI numberText;
+    [SerializeField] private Button _playAgainButton;
+    
+    private void Awake()
+    {
+        _playAgainButton.onClick.AddListener(() => {
+                Loader.Load(Loader.Scene.GameScene);
+        });
+    }
 
     private void Start()
     {
